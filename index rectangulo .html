@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Funciones en JavaScript</title>
+</head>
+<body>
+
+<h2>Área de un rectángulo usando función definida por el usuario</h2>
+
+Base: <input type="number" id="base"><br><br>
+Altura: <input type="number" id="altura"><br><br>
+
+<button onclick="calcularArea()">Calcular área</button>
+
+<p id="resultado">Resultado: </p>
+
+<script>
+// Función definida por el usuario
+function calcularArea() {
+let b = parseInt(document.getElementById("base").value);
+let h = parseInt(document.getElementById("altura").value);
+let area = b * h;
+document.getElementById("resultado").innerText ="Área: " + area;
+}
+</script>
+
+</body>
+</html>

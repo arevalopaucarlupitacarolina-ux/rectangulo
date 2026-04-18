@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Programa Completo</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+    text-align: center;
+    padding: 20px;
+}
+
+.contenedor {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 350px;
+    margin: 20px auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+    color: #333;
+}
+
+input, select {
+    padding: 8px;
+    width: 80%;
+    margin: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.resultado {
+    font-weight: bold;
+    margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>🌟 Programa Completo en JavaScript 🌟</h1>
+
+<!-- Adolescente -->
+<div class="contenedor">
+<h2>¿Es adolescente?</h2>
+<input type="number" id="edad" placeholder="Edad">
+<button onclick="adolescente()">Verificar</button>
+<p id="r1" class="resultado"></p>
+</div>
+
+<!-- Calificación -->
+<div class="contenedor">
+<h2>Calificación</h2>
+<input type="number" id="nota" placeholder="Nota (0-20)">
+<button onclick="calificacion()">Evaluar</button>
+<p id="r2" class="resultado"></p>
+</div>
+
+<!-- Mes -->
+<div class="contenedor">
+<h2>Mes del año</h2>
+<input type="number" id="mes" placeholder="Número (1-12)">
+<button onclick="mes()">Mostrar</button>
+<p id="r3" class="resultado"></p>
+</div>
+
+<!-- Calculadora -->
+<div class="contenedor">
+<h2>Calculadora</h2>
+<input type="number" id="n1" placeholder="Número 1">
+<input type="number" id="n2" placeholder="Número 2">
+<select id="op">
+<option value="+">+</option>
+<option value="-">-</option>
+<option value="*">*</option>
+<option value="/">/</option>
+</select>
+<button onclick="calc()">Calcular</button>
+<p id="r4" class="resultado"></p>
+</div>
+
+<!-- Año bisiesto -->
+<div class="contenedor">
+<h2>Año bisiesto</h2>
+<input type="number" id="anio" placeholder="Año">
+<button onclick="bisiesto()">Verificar</button>
+<p id="r5" class="resultado"></p>
+</div>
+
+<script>
+
+function adolescente() {
+let e = parseInt(document.getElementById("edad").value);
+let r = document.getElementById("r1");
+
+if (e >= 13 && e <= 17) {
+r.textContent = "✅ Es adolescente";
+r.style.color = "green";
+} else {
+r.textContent = "❌ No es adolescente";
+r.style.color = "red";
+}
+}
+
+function calificacion() {
+let n = parseFloat(document.getElementById("nota").value);
+let r = document.getElementById("r2");
+
+if (n < 10) {
+r.textContent = "🔴 Muy bajo";
+r.style.color = "red";
+} else if (n <= 13) {
+r.textContent = "🟠 Regular";
+r.style.color = "orange";
+} else if (n <= 17) {
+r.textContent = "🔵 Bueno";
+r.style.color = "blue";
+} else {
+r.textContent = "🟢 Excelente";
+r.style.color = "green";
+}
+}
+
+function mes() {
+let m = parseInt(document.getElementById("mes").value);
+let r = document.getElementById("r3");
+
+switch(m) {
+case 1: r.textContent="Enero"; break;
+case 2: r.textContent="Febrero"; break;
+case 3: r.textContent="Marzo"; break;
+case 4: r.textContent="Abril"; break;
+case 5: r.textContent="Mayo"; break;
+case 6: r.textContent="Junio"; break;
+case 7: r.textContent="Julio"; break;
+case 8: r.textContent="Agosto"; break;
+case 9: r.textContent="Septiembre"; break;
+case 10: r.textContent="Octubre"; break;
+case 11: r.textContent="Noviembre"; break;
+case 12: r.textContent="Diciembre"; break;
+default: r.textContent="❌ Inválido"; r.style.color="red"; return;
+}
+r.style.color="green";
+}
+
+function calc() {
+let a = parseFloat(document.getElementById("n1").value);
+let b = parseFloat(document.getElementById("n2").value);
+let op = document.getElementById("op").value;
+let r = document.getElementById("r4");
+
+let res;
+switch(op){
+case "+": res=a+b; break;
+case "-": res=a-b; break;
+case "*": res=a*b; break;
+case "/": 
+if(b==0){r.textContent="❌ No dividir entre 0"; return;}
+res=a/b; break;
+}
+r.textContent="Resultado: "+res;
+r.style.color="green";
+}
+
+function bisiesto() {
+let a = parseInt(document.getElementById("anio").value);
+let r = document.getElementById("r5");
+
+if ((a%4==0 && a%100!=0) || (a%400==0)) {
+r.textContent="🟢 Es bisiesto";
+r.style.color="green";
+} else {
+r.textContent="🔴 No es bisiesto";
+r.style.color="red";
+}
+}
+
+</script>
+
+</body>
+</html>

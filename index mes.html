@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mes del año</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+    text-align: center;
+    padding: 50px;
+}
+
+.contenedor {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 320px;
+    margin: auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+input {
+    padding: 10px;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #6a5acd;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5a4abd;
+}
+
+#resultado {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="contenedor">
+    <h2>¿Qué mes es?</h2>
+
+    <input type="number" id="numero" placeholder="Ingresa un número (1-12)">
+    <br>
+    <button onclick="mostrarMes()">Mostrar mes</button>
+
+    <p id="resultado"></p>
+</div>
+
+<script>
+function mostrarMes() {
+    let num = parseInt(document.getElementById("numero").value);
+    let resultado = document.getElementById("resultado");
+    let mes = "";
+
+    switch(num) {
+        case 1: mes = "Enero"; break;
+        case 2: mes = "Febrero"; break;
+        case 3: mes = "Marzo"; break;
+        case 4: mes = "Abril"; break;
+        case 5: mes = "Mayo"; break;
+        case 6: mes = "Junio"; break;
+        case 7: mes = "Julio"; break;
+        case 8: mes = "Agosto"; break;
+        case 9: mes = "Septiembre"; break;
+        case 10: mes = "Octubre"; break;
+        case 11: mes = "Noviembre"; break;
+        case 12: mes = "Diciembre"; break;
+        default:
+            resultado.textContent = "Número inválido (1-12)";
+            resultado.style.color = "red";
+            return;
+    }
+
+    resultado.textContent = "El mes es: " + mes;
+    resultado.style.color = "green";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Promedio del estudiante</title>
+</head>
+<body>
+
+<h2>Clasificar el promedio de un estudiante</h2>
+
+<input type="number" id="promedio" placeholder="Ingresa el promedio">
+
+<button onclick="evaluarPromedio()">Evaluar</button>
+
+<p id="resultado"></p>
+
+<script>
+// Función definida por el usuario
+function evaluarPromedio() {
+    let prom = parseFloat(document.getElementById("promedio").value);
+    let resultado = document.getElementById("resultado");
+
+    if (prom < 11) {
+        resultado.textContent = "Desaprobado";
+        resultado.style.color = "red";
+    } else if (prom >= 11 && prom <= 13) {
+        resultado.textContent = "Regular";
+        resultado.style.color = "orange";
+    } else if (prom >= 14 && prom <= 16) {
+        resultado.textContent = "Bueno";
+        resultado.style.color = "blue";
+    } else if (prom >= 17 && prom <= 20) {
+        resultado.textContent = "Excelente";
+        resultado.style.color = "green";
+    } else {
+        resultado.textContent = "Ingrese un promedio válido (0 - 20)";
+        resultado.style.color = "black";
+    }
+}
+</script>
+
+</body>
+</html>

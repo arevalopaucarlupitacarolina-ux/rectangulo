@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Verificar Adolescente</title>
+</head>
+<body>
+
+<h2>¿Es adolescente?</h2>
+
+Edad: <input type="number" id="edad" placeholder="Ingresa tu edad"><br><br>
+
+<button onclick="verificarEdad()">Verificar</button>
+
+<p id="resultado"></p>
+
+<script>
+// Función definida por el usuario
+function verificarEdad() {
+    let edad = parseInt(document.getElementById("edad").value);
+    let resultado = document.getElementById("resultado");
+
+    if (edad >= 13 && edad <= 17) {
+        resultado.textContent = "Es adolescente";
+        resultado.style.color = "green";
+    } else {
+        resultado.textContent = "No es adolescente";
+        resultado.style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>

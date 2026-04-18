@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Clasificación de Calificación</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #89f7fe, #66a6ff);
+    text-align: center;
+    padding: 50px;
+}
+
+.contenedor {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 320px;
+    margin: auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+input {
+    padding: 10px;
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#resultado {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="contenedor">
+    <h2>Clasifica tu calificación</h2>
+
+    <input type="number" id="nota" placeholder="Ingresa tu nota (0-20)">
+
+    <br>
+
+    <button onclick="evaluar()">Evaluar</button>
+
+    <p id="resultado"></p>
+</div>
+
+<script>
+function evaluar() {
+    let nota = parseFloat(document.getElementById("nota").value);
+    let resultado = document.getElementById("resultado");
+
+    if (isNaN(nota) || nota < 0 || nota > 20) {
+        resultado.textContent = "Ingrese una nota válida (0 - 20)";
+        resultado.style.color = "black";
+    } 
+    else if (nota < 10) {
+        resultado.textContent = "🔴 Muy bajo";
+        resultado.style.color = "red";
+    } 
+    else if (nota >= 10 && nota <= 13) {
+        resultado.textContent = "🟠 Regular";
+        resultado.style.color = "orange";
+    } 
+    else if (nota >= 14 && nota <= 17) {
+        resultado.textContent = "🔵 Bueno";
+        resultado.style.color = "blue";
+    } 
+    else {
+        resultado.textContent = "🟢 Excelente";
+        resultado.style.color = "green";
+    }
+}
+</script>
+
+</body>
+</html>
